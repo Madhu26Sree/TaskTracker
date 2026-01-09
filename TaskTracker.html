@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            width: 350px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input {
+            width: 75%;
+            padding: 8px;
+            margin-right: 5px;
+        }
+
+        button {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* STATUS COLORS */
+        .pending {
+            color: #ff9800; /* orange */
+            font-weight: bold;
+        }
+
+        .completed {
+            color: #4caf50; /* green */
+            text-decoration: line-through;
+            font-weight: bold;
+        }
+
+        .status {
+            font-size: 12px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Task Tracker</h1>
+
+    <input type="text" id="taskInput" placeholder="Enter a task" />
+    <button onclick="addTask()">Add</button>
+
+    <ul id="taskList"></ul>
+</div>
+
+<script>
+    const taskList = document.getElementById("taskList");
+
+    function addTask() {
+        const taskInput = document.getElementById("taskInput");
+        const taskText = taskInput.value.trim();
+
+        if (taskText === "") {
+            alert("Please enter a task");
+            return;
+        }
+
+        const li = document.createElement("li");
+
+        const span = document.createElement("span");
+        span.textContent = taskText;
+
+        const status = document.createElement("span");
+        status.textContent = "Pending";
+        status.className = "status pending";
+
+        const button = document.createElement("button");
+        button.textContent = "Complete";
+        button.onclick = function () {
+            span.classList.add("completed");
+            status.textContent = "Completed";
+            status.classList.remove("pending");
+            status.classList.add("completed");
+            button.disabled = true;
+        };
+
+        li.appendChild(span);
+        li.appendChild(status);
+        li.appendChild(button);
+
+        taskList.appendChild(li);
+        taskInput.value = "";
+    }
+</script>
+
+</body>
+</html>
