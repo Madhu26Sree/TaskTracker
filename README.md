@@ -29,7 +29,7 @@ This project demonstrates core web development fundamentals such as DOM manipula
 ## 📂 Project Structure
 
 task-tracker/
-│
+
 ├── index.html
 └── README.md
 
@@ -38,11 +38,8 @@ task-tracker/
 ## ▶️ How to Run the Project
 
 1. Clone the repository:
-   git clone https://github.com/Madhu26Sree/TaskTrackerr.git
+   git clone https://github.com/Madhu26Sree/TaskTracker.git
 2. Open the project folder:
 3. Open TaskTracker.html in your browser.
 
 
-Copy code
-cd task-tracker
-Open index.html in your browser.
